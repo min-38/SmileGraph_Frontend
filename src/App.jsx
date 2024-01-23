@@ -5,7 +5,6 @@ import './main.css';
 import Home from "./pages/Home";
 
 function App() {
-
   return (
     <div className="grid gap-6 mb-6 md:grid-cols-2">
       <Home />

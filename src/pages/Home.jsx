@@ -11,15 +11,15 @@ const Home = () => {
         event.preventDefault();
         
         const formData = new FormData();
-        
+
         formData.append('happiness', happiness);
         formData.append('title', title);
-        formData.append('content', content)
-        formData.append('time', Date.now())
+        formData.append('content', content);
+        formData.append('time', Date.now());
 
         axios({
             method:'POST',
-            url:'http://localhost:8080/api/writeDiary',
+            url:'/api/diary',
             data: formData,
         })
         .then((result)=>{console.log('요청성공')
