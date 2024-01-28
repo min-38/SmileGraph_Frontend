@@ -1,0 +1,72 @@
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+/* text */
+.tc {
+  text-align: center;
+}
+.tb {
+  font-weight: bold;
+}
+.fs20 {
+  font-size: 80px;
+}
+/* textarea */
+textarea {
+  resize: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+/* button */
+.btn {
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  flex: 0 0 auto;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  text-decoration: none #6B7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: .2s;
+  transition-property: background-color,border-color,color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
+.default-btn {
+  background-color: #111827;
+  color: #FFFFFF;
+}
+
+.btn:hover {
+  background-color: #374151;
+}
+
+.btn:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.btn.disabled {
+  background-color: #999999;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: .75rem 1.5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .default-btn {
+      color: #000000;
+      background-color: #ffffff;
+  }
+}

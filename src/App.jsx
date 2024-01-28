@@ -1,15 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './main.css';
-import Home from "./pages/Home";
+import * as React from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import theme from "./config/theme";
+import Write from "./pages/Diary/Write";
+
+import './styles/base.css'
+import './styles/main.css'
+import './styles/layout.css'
 
 function App() {
-  return (
-    <div className="grid gap-6 mb-6 md:grid-cols-2">
-      <Home />
-    </div>
-  )
+    return (
+        <ThemeProvider theme={theme}>
+            <div className="container">
+                <Write />
+            </div>
+        </ThemeProvider>
+    )
 }
 
 export default App

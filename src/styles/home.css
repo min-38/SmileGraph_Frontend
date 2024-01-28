@@ -1,0 +1,69 @@
+.wrapper {
+  flex-direction: row; justify-content: space-evenly; align-items: center;
+}
+.sectionArea {
+  width: 100%;
+  height: 75vh;
+  min-height: 35em;
+  border: 3px solid transparent;
+  border-radius: 2%;
+  /* background-image: linear-gradient(#fff, #fff), linear-gradient(to bottom, #7bc778, #6eb35e, #619f44, #558c29, #497905); */
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.sectionArea > section {
+  padding-top: 1em;
+}
+
+.sectionArea .sectionContent {
+  padding: 2em 3em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .sectionArea {
+    background-color: #000000;
+  }
+}
+
+.emojiSelectArea {
+  margin-bottom: 1em;
+}
+
+.diary_write_area {
+  margin: 1em 1em;
+}
+
+.diary_title_area {
+  margin-bottom: 1em;
+}
+
+.emotionBtn {
+  background-color: #EFEFEF!important;
+  color: #000000!important;
+}
+.emotionBtn:hover {
+  cursor: pointer;
+}
+.emotionBtn.active {
+  background-color: #707070!important;
+}
+
+.d_title {
+  font-size: 1rem;
+  height: 2em;
+  width: 100%;
+}
+
+.d_content {
+  height: 19em;
+}
+
+.diary_post_btn {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.post_btn_section {
+  float: right;
+}
