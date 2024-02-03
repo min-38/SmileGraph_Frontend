@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import theme from "./config/theme";
 import Write from "./pages/Diary/Write";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './styles/base.css'
 import './styles/main.css'
@@ -11,7 +12,12 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <div className="container">
-                <Write />
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element = {<Write />}></Route>
+                    </Routes>
+                    
+                </BrowserRouter>
             </div>
         </ThemeProvider>
     )

@@ -1,47 +1,62 @@
-// import Diary from "../components/Diary";
-// import DiaryGraph from "../components/DiaryGraph";
 import { useState, useEffect } from 'react';
 import Slider from "../../components/Slider";
 import FaceEmojis from "../../components/FaceEmojis"
+import {postDiary} from "../../services/DiaryService"
 import "../../styles/layout.css"
 import "../../styles/home.css"
 
 const Write = () => {
-    const [happiness, setHappiness] = useState(50);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [emotion, setEmotion] = useState('\u{1F610}');
+    const [happiness, setHappiness] = useState(50);
+    const [emoji, setEmoji] = useState('\u{1F610}');
 
     useEffect(() => {
-        async function chkAvailableToPost() {
-            if(title.length == 0 || content.length == 0) {
-                document.getElementById("post_btn").classList.add("disabled");
-            } else {
-                document.getElementById("post_btn").classList.remove("disabled");
-            }
-        }
         chkAvailableToPost();
     });
-    
 
-    const handleHappiness = (event, value) => {
+    async function chkAvailableToPost() {
+        if(title.length == 0 || content.length == 0) {
+            document.getElementById("post_btn").classList.add("disabled");
+            document.getElementById("post_btn").disabled = true;
+        } else {
+            document.getElementById("post_btn").classList.remove("disabled");
+            document.getElementById("post_btn").disabled = false;
+        }
+    }
+
+    const handleHappiness = (e, value) => {
+        e.preventDefault();
         setHappiness(value);
     };
 
-    const handleEmotion = (event) => {
-        setEmotion(event.target.innerText);
-        Array.from(document.querySelectorAll('.emotionBtn.active')).forEach(function(el) { 
+    const handleEmoji = (e) => {
+        e.preventDefault();
+        setEmoji(e.target.innerText);
+        Array.from(document.querySelectorAll('.emojiBtn.active')).forEach(function(el) { 
             el.classList.remove('active');
         });
-        event.target.classList.add("active");
+        e.target.classList.add("active");
     }
 
-    const handleTitle = (event) => {
-        setTitle(event.target.value);
+    const handleTitle = (e) => {
+        e.preventDefault();
+        setTitle(e.target.value);
     };
 
-    const handleContent = (event) => {
-        setContent(event.target.value);
+    const handleContent = (e) => {
+        e.preventDefault();
+        setContent(e.target.value);
+    }
+
+    const post = (e) => {
+        e.preventDefault();
+
+        const diary = {title, content, happiness, emoji};
+        console.log(diary);
+        postDiary(diary).then((response) => {
+            console.log(response);
+        })
     }
 
     return (
@@ -55,14 +70,14 @@ const Write = () => {
                             <div>
                                 <h2>오늘의 행복도</h2>
                                 <div className='tc'>
-                                    <p className='fs20'>{emotion}</p>
+                                    <p className='fs20'>{emoji}</p>
                                 </div>
                                 <div>
                                     <label htmlFor="happiness">행복도: {happiness}</label>
                                     <Slider onChange={handleHappiness} value={happiness}/>
                                 </div>
                                 <div>
-                                    <FaceEmojis onClick={handleEmotion} value={emotion} />
+                                    <FaceEmojis onClick={handleEmoji} value={emoji} />
                                 </div>
                             </div>
                         </div>
@@ -107,8 +122,9 @@ const Write = () => {
                 <button
                     id='post_btn'
                     className="btn default-btn diary_post_btn disabled"
+                    onClick={(e) => post(e)}
                     role="button"
-                    disabled
+                    // disabled
                 >작성 완료</button>
             </div>
         </div>

@@ -37,14 +37,14 @@
   margin-bottom: 1em;
 }
 
-.emotionBtn {
+.emojiBtn {
   background-color: #EFEFEF!important;
   color: #000000!important;
 }
-.emotionBtn:hover {
+.emojiBtn:hover {
   cursor: pointer;
 }
-.emotionBtn.active {
+.emojiBtn.active {
   background-color: #707070!important;
 }
 

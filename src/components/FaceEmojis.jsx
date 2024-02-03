@@ -24,7 +24,7 @@ export default function FaceEmojis({onClick}) {
                             return (
                                 <Item
                                     key={emoji}
-                                    className='emotionBtn'
+                                    className='emojiBtn'
                                     sx={{ maxWidth: 'md' }}
                                     onClick={onClick}
                                 >
@@ -43,7 +43,7 @@ export default function FaceEmojis({onClick}) {
                             return (
                                 <Item
                                     key={emoji}
-                                    className='emotionBtn'
+                                    className='emojiBtn'
                                     sx={{ maxWidth: 'md' }}
                                     onClick={onClick}
                                 >
@@ -62,7 +62,7 @@ export default function FaceEmojis({onClick}) {
                             return (
                                 <Item
                                     key={emoji}
-                                    className={`emotionBtn`}
+                                    className={`emojiBtn`}
                                     sx={{ maxWidth: 'md' }}
                                     onClick={onClick}
                                 >
